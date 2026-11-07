@@ -1,16 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
 
 // 1. MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB Connected!"))
     .catch((err) => console.log("Error:", err));
 
-// 2. Database Schema (Form ke dono inputs ke hisab se)
+// 2. Database Schema
 const userSchema = new mongoose.Schema({
     username: String,
     password: String,
@@ -19,7 +19,12 @@ const userSchema = new mongoose.Schema({
 
 const UserData = mongoose.model('UserData', userSchema);
 
-// 3. Form Submit Hone Par Data Save Karna
+// 3. Bahar rakhi hui index.html file dikhane ke liye (Yeh naya add kiya hai)
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// 4. Form Submit Hone Par Data Save Karna
 app.post('/save-data', async (req, res) => {
     try {
         const newEntry = new UserData({
@@ -41,7 +46,7 @@ app.post('/save-data', async (req, res) => {
     }
 });
 
-// 4. Admin Panel (Saara Data Dekhne Ke Liye)
+// 5. Admin Panel
 app.get('/admin', async (req, res) => {
     try {
         const allUsers = await UserData.find().sort({ createdAt: -1 });
