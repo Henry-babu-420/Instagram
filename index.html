@@ -9,6 +9,7 @@ content="width=device-width, initial-scale=1.0">
 
 <title>Instagram Demo</title>
 
+
 <style>
 * {
     margin: 0;
@@ -16,15 +17,20 @@ content="width=device-width, initial-scale=1.0">
     box-sizing: border-box;
 }
 
-html, body {
+html {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
 }
 
 body {
-    background: #152126;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background: #000;
     color: #f5f5f5;
     font-family: Arial, sans-serif;
+
     overflow-x: hidden;
 }
 
@@ -33,13 +39,15 @@ body {
     min-height: 100vh;
     min-height: 100dvh;
 
+    background: #1c1c1c;
+
     display: flex;
     flex-direction: column;
 
     padding:
-        max(25px, env(safe-area-inset-top))
-        23px
-        max(22px, env(safe-area-inset-bottom));
+        max(20px, env(safe-area-inset-top))
+        29px
+        max(20px, env(safe-area-inset-bottom));
 }
 
 /* LANGUAGE */
@@ -47,9 +55,10 @@ body {
 .language {
     text-align: center;
     color: #b7bdc1;
-    font-size: 16px;
 
-    margin-top: 52px;
+    font-size: 14px;
+
+    margin-top: 38px;
 }
 
 /* LOGO */
@@ -59,37 +68,39 @@ body {
     justify-content: center;
     align-items: center;
 
-    margin-top: 110px;
-    margin-bottom: 125px;
+    margin-top: 72px;
+    margin-bottom: 85px;
 }
 
 .logo svg {
-    width: 82px;
-    height: 82px;
+    width: 78px;
+    height: 78px;
 }
 
-/* LOGIN FORM */
+/* FORM */
 
 .login-form {
     width: 100%;
+
     display: flex;
     flex-direction: column;
-    gap: 18px;
+
+    gap: 10px;
 }
 
 input {
     width: 100%;
-    height: 62px;
+    height: 55px;
 
     background: transparent;
 
     border: 1px solid #41494d;
-    border-radius: 23px;
+    border-radius: 20px;
 
-    padding: 0 20px;
+    padding: 0 15px;
 
     color: white;
-    font-size: 16px;
+    font-size: 14px;
 
     outline: none;
 }
@@ -98,74 +109,61 @@ input::placeholder {
     color: #a8adb2;
 }
 
-input:focus {
-    border-color: #707b82;
-}
-
-/* LOGIN BUTTON */
+/* LOGIN */
 
 .login-btn {
     width: 100%;
-    height: 60px;
+    height: 40px;
 
     border: none;
-    border-radius: 35px;
+    border-radius: 30px;
 
     background: #0866e9;
     color: white;
 
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 
-    cursor: pointer;
+    margin-top: 0;
 }
 
-/* FORGOTTEN PASSWORD */
+/* FORGOT */
 
 .forgot {
     text-align: center;
 
-    margin-top: 30px;
+    margin-top: 18px;
 
-    font-size: 17px;
-    font-weight: 500;
-
-    cursor: pointer;
+    font-size: 15px;
 }
 
-/* BOTTOM SECTION */
+/* BOTTOM */
 
 .bottom {
     margin-top: auto;
 
-    padding-top: 75px;
+    padding-top: 65px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    gap: 24px;
+    gap: 20px;
 }
 
-/* CREATE ACCOUNT */
+/* CREATE */
 
 .create-btn {
     width: 100%;
-    min-height: 60px;
+    height: 45px;
 
     border: 1px solid #4285f4;
-    border-radius: 35px;
+    border-radius: 30px;
 
     background: transparent;
     color: #65a5ff;
 
-    font-size: 17px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
+    font-size: 15px;
 }
 
 /* META */
@@ -175,47 +173,25 @@ input:focus {
 
     color: #d8dcdf;
 
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 18px;
 }
 
-/* SMALL MOBILE */
+/* SHORT SCREEN */
 
 @media (max-height: 700px) {
 
     .language {
-        margin-top: 25px;
+        margin-top: 15px;
     }
 
     .logo {
-        margin-top: 65px;
-        margin-bottom: 65px;
-    }
-
-    .logo svg {
-        width: 72px;
-        height: 72px;
+        margin-top: 40px;
+        margin-bottom: 45px;
     }
 
     .bottom {
-        padding-top: 40px;
+        padding-top: 35px;
     }
-
-}
-
-/* BIG MOBILE */
-
-@media (min-height: 800px) {
-
-    .language {
-        margin-top: 65px;
-    }
-
-    .logo {
-        margin-top: 125px;
-        margin-bottom: 140px;
-    }
-
 }
 
 /* DESKTOP */
@@ -226,22 +202,9 @@ input:focus {
         max-width: 450px;
         margin: auto;
     }
-
-    .language {
-        margin-top: 40px;
-    }
-
-    .logo {
-        margin-top: 90px;
-        margin-bottom: 90px;
-    }
-
-    .bottom {
-        padding-top: 70px;
-    }
-
 }
 </style>
+
 </head>
 
 <body>
